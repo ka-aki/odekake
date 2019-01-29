@@ -15,7 +15,7 @@ const Result = () => {
     <Card
       style={{
         margin: '0 auto',
-        width: '60%'
+        width: '20%'
       }}
     >
       <CardMedia
