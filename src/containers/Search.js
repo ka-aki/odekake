@@ -1,6 +1,12 @@
 import { connect } from 'react-redux';
 import { changePlaceInput } from '../actions/search';
+import App from '../App';
 
+const mapStateToProps = state => {
+  return {
+    place: state.searchReducer.place
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     changePlace: placeInput => {
@@ -9,8 +15,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const mapStateToProps = state => {
-  return {
-    place: state.searchReducer.place
-  };
-};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

@@ -9,9 +9,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
-import styled from "styled-components";
+import styled from 'styled-components';
 
-function Search() {
+function Search(props) {
   return (
     <React.Fragment>
       <AppBar position="static" color="primary">
@@ -27,6 +27,8 @@ function Search() {
           placeholder="東京"
           variant="outlined"
           fullWidth
+          value={props.place}
+          onChange={props.changePlace}
         />
         <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-age-simple">category</InputLabel>
@@ -66,13 +68,13 @@ function Search() {
 
 export default Search;
 
-const BarLayout  = styled.div` 
-  width: 60%; 
+const BarLayout = styled.div`
+  width: 60%;
   height: 30%;
   margin: 100px auto 50px;
   line-height: 6;
-`
+`;
 
-const ButtonLayout  = styled.p`  
+const ButtonLayout = styled.p`
   text-align: center;
-`
+`;

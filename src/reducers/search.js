@@ -1,4 +1,8 @@
-export const searchReducer = (state, action) => {
+const initialState = {
+  place: ''
+};
+
+export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_PLACE':
       return {
@@ -7,6 +11,6 @@ export const searchReducer = (state, action) => {
       };
 
     default:
-      break;
+      return state;
   }
 };
