@@ -28,7 +28,9 @@ function Search(props) {
           variant="outlined"
           fullWidth
           value={props.place}
-          onChange={props.changePlace}
+          onChange={e => {
+            console.log(e);
+          }}
         />
         <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-age-simple">category</InputLabel>
@@ -78,3 +80,9 @@ const BarLayout = styled.div`
 const ButtonLayout = styled.p`
   text-align: center;
 `;
+
+const someMethod = aa => {
+  console.log('hello!!');
+};
+
+someMethod('おっぱい');

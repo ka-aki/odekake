@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Search from './Search';
+import Search from './containers/Search';
 import Result from './Result';
 
 const App = () => {
