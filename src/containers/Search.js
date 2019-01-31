@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
-import { changePlaceInput, changeKeywordInput, changeCategotyInput, fetchData } from '../actions/search';
+import {
+  changePlaceInput,
+  changeKeywordInput,
+  changeCategotyInput,
+  fetchData
+} from '../actions/search';
 import Search from '../Search';
-import Result from '../Result';
 
 const mapStateToProps = state => {
   return {
     place: state.searchReducer.place,
     category: state.searchReducer.category,
-    keyword: state.searchReducer.keyword,
-    // data: state.fetchDataReducer.data,
+    keyword: state.searchReducer.keyword
   };
 };
 
@@ -32,4 +35,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Search, Result);
+)(Search);
