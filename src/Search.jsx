@@ -29,7 +29,7 @@ function Search(props) {
           variant="outlined"
           fullWidth
           value={props.place}
-          onChange={(e) => {
+          onChange={e => {
             props.changePlace(e.target.value);
           }}
         />
@@ -37,7 +37,7 @@ function Search(props) {
           <InputLabel htmlFor="outlined-age-simple">category</InputLabel>
           <Select
             value={props.category}
-            onChange={(e) => {
+            onChange={e => {
               props.changeCategory(e.target.value);
             }}
             input={
@@ -51,9 +51,9 @@ function Search(props) {
             <MenuItem value="すべて">
               <span>すべて</span>
             </MenuItem>
-            <MenuItem value={"飲食店"}>飲食店</MenuItem>
-            <MenuItem value={"カフェ"}>カフェ</MenuItem>
-            <MenuItem value={"娯楽"}>娯楽</MenuItem>
+            <MenuItem value={'飲食店'}>飲食店</MenuItem>
+            <MenuItem value={'カフェ'}>カフェ</MenuItem>
+            <MenuItem value={'娯楽'}>娯楽</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -62,19 +62,21 @@ function Search(props) {
           variant="outlined"
           fullWidth
           value={props.keyword}
-          onChange={(e) => {
+          onChange={e => {
             props.changeKeyword(e.target.value);
           }}
         />
       </BarLayout>
       <ButtonLayout>
-        {/* <Link to="/result" style={{ textDecoration: 'none' }}> */}
-          <Button variant="contained" color="secondary" onClick={() => {
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
             props.search(props.place, props.keyword);
-          }}>
-              決定
-          </Button>
-        {/* </Link> */}
+          }}
+        >
+          決定
+        </Button>
       </ButtonLayout>
     </React.Fragment>
   );
