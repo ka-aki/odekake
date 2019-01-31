@@ -12,6 +12,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Result = () => {
   return (
+    // props.map((v,i) => (
     <Card
       style={{
         margin: '0 auto',
@@ -79,6 +80,7 @@ const Result = () => {
         </CardContent>
       </Collapse>
     </Card>
+    // ))
   );
 };
 

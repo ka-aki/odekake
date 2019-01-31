@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function Search(props) {
   return (
@@ -28,14 +29,17 @@ function Search(props) {
           variant="outlined"
           fullWidth
           value={props.place}
-          onChange={e => {
-            console.log(e);
+          onChange={(e) => {
+            props.changePlace(e.target.value);
           }}
         />
         <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-age-simple">category</InputLabel>
           <Select
-            value={''}
+            value={props.category}
+            onChange={(e) => {
+              props.changeCategory(e.target.value);
+            }}
             input={
               <OutlinedInput
                 labelWidth={61}
@@ -44,12 +48,12 @@ function Search(props) {
               />
             }
           >
-            <MenuItem value="">
+            <MenuItem value="すべて">
               <span>すべて</span>
             </MenuItem>
-            <MenuItem value={10}>飲食店</MenuItem>
-            <MenuItem value={20}>カフェ</MenuItem>
-            <MenuItem value={30}>娯楽</MenuItem>
+            <MenuItem value={"飲食店"}>飲食店</MenuItem>
+            <MenuItem value={"カフェ"}>カフェ</MenuItem>
+            <MenuItem value={"娯楽"}>娯楽</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -57,12 +61,20 @@ function Search(props) {
           placeholder="カフェ"
           variant="outlined"
           fullWidth
+          value={props.keyword}
+          onChange={(e) => {
+            props.changeKeyword(e.target.value);
+          }}
         />
       </BarLayout>
       <ButtonLayout>
-        <Button variant="contained" color="secondary">
-          決定
-        </Button>
+        {/* <Link to="/result" style={{ textDecoration: 'none' }}> */}
+          <Button variant="contained" color="secondary" onClick={() => {
+            props.search(props.place, props.keyword);
+          }}>
+              決定
+          </Button>
+        {/* </Link> */}
       </ButtonLayout>
     </React.Fragment>
   );
@@ -80,9 +92,3 @@ const BarLayout = styled.div`
 const ButtonLayout = styled.p`
   text-align: center;
 `;
-
-const someMethod = aa => {
-  console.log('hello!!');
-};
-
-someMethod('おっぱい');
