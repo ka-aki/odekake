@@ -13,9 +13,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const Result = props => {
   return (
     <div>
-      {props.data.response.venues.map((venue, i) => {
-        console.log(venue, i);
-      })}
+      {props.data ? props.data.response.venues.map((venue) => <p>{venue}</p>) : <p>読み込み中</p>}
     </div>
   );
 };

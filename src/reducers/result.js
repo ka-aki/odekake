@@ -1,5 +1,11 @@
 const initialState = {
-  date: ''
+  date: {
+    response: {
+      venues: {
+         name: '',
+      }
+    }
+  }
 };
 
 export const fetchDataReducer = (state = initialState, action) => {

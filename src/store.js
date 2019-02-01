@@ -4,6 +4,7 @@ import { fetchDataReducer } from './reducers/result';
 import thunkMiddleware from 'redux-thunk';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   combineReducers({
     searchReducer,

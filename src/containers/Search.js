@@ -6,11 +6,13 @@ import {
   fetchData
 } from '../actions/search';
 import Search from '../Search';
+import { withRouter } from 'react-router';
+
 
 const mapStateToProps = state => {
   return {
     place: state.searchReducer.place,
-    category: state.searchReducer.category,
+    categoryId: state.searchReducer.categoryId,
     keyword: state.searchReducer.keyword
   };
 };
@@ -26,13 +28,13 @@ const mapDispatchToProps = dispatch => {
     changeKeyword: keywordInput => {
       dispatch(changeKeywordInput(keywordInput));
     },
-    search: (place, keyword) => {
-      dispatch(fetchData(place, keyword));
+    search: (place, categoryId, keyword) => {
+      dispatch(fetchData(place, categoryId, keyword));
     }
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Search);
+)(Search));

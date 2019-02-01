@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Search from './containers/Search';
 import Result from './Result';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <React.Fragment>
+      <Switch>
         <Route path={'/'} exact component={Search} />
         <Route path={'/result'} exact component={Result} />
-      </React.Fragment>
+      </Switch>
     </BrowserRouter>
   );
 };

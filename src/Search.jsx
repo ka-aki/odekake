@@ -10,9 +10,15 @@ import FormControl from '@material-ui/core/FormControl';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 function Search(props) {
+  const all = ""
+  const restaurant = "4d4b7105d754a06374d81259"
+  const cafe = "4bf58dd8d48988d16d941735"
+  const amusument = "4d4b7104d754a06370d81259"
+  const event = "4d4b7105d754a06373d81259"
+
+
   return (
     <React.Fragment>
       <AppBar position="static" color="primary">
@@ -36,24 +42,25 @@ function Search(props) {
         <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-age-simple">category</InputLabel>
           <Select
-            value={props.category}
+            value={props.categoryId}
             onChange={e => {
               props.changeCategory(e.target.value);
             }}
             input={
               <OutlinedInput
                 labelWidth={61}
-                name="category"
+                name="categoryId"
                 id="outlined-age-simple"
               />
             }
           >
-            <MenuItem value="すべて">
+            <MenuItem value={all}>
               <span>すべて</span>
             </MenuItem>
-            <MenuItem value={'飲食店'}>飲食店</MenuItem>
-            <MenuItem value={'カフェ'}>カフェ</MenuItem>
-            <MenuItem value={'娯楽'}>娯楽</MenuItem>
+            <MenuItem value={restaurant}>飲食店</MenuItem>
+            <MenuItem value={cafe}>カフェ</MenuItem>
+            <MenuItem value={amusument}>娯楽</MenuItem>
+            <MenuItem value={event}>イベント</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -72,8 +79,10 @@ function Search(props) {
           variant="contained"
           color="secondary"
           onClick={() => {
-            props.search(props.place, props.keyword);
-          }}
+            props.search(props.place, props.categoryId, props.keyword);
+            props.history.push('./result');
+            }
+          }
         >
           決定
         </Button>
