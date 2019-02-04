@@ -2,7 +2,8 @@ const initialState = {
   place: '',
   categoryId: '',
   keyword: '',
-  data: '',
+  category: '',
+  data: ''
 };
 
 export const searchReducer = (state = initialState, action) => {
@@ -13,12 +14,12 @@ export const searchReducer = (state = initialState, action) => {
         place: action.payload.placeInput
       };
     case 'CHANGE_CATEGORY':
-      return{
+      return {
         ...state,
         categoryId: action.payload.categoryInput
       };
     case 'CHANGE_KEYWORD':
-      return{
+      return {
         ...state,
         keyword: action.payload.keywordInput
       };

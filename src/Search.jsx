@@ -11,6 +11,10 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
+const restaurant = '4d4b7105d754a06374d81259';
+const cafe = '4bf58dd8d48988d16d941735';
+const amusument = '4d4b7104d754a06370d81259';
+
 function Search(props) {
   const all = ""
   const restaurant = "4d4b7105d754a06374d81259"
@@ -60,7 +64,10 @@ function Search(props) {
             <MenuItem value={restaurant}>飲食店</MenuItem>
             <MenuItem value={cafe}>カフェ</MenuItem>
             <MenuItem value={amusument}>娯楽</MenuItem>
+<<<<<<< HEAD
             <MenuItem value={event}>イベント</MenuItem>
+=======
+>>>>>>> 2ab2e2246703d3fa4c62db41f52c00384a6aaa3d
           </Select>
         </FormControl>
         <TextField
@@ -79,10 +86,16 @@ function Search(props) {
           variant="contained"
           color="secondary"
           onClick={() => {
+<<<<<<< HEAD
             props.search(props.place, props.categoryId, props.keyword);
             props.history.push('./result');
             }
           }
+=======
+            props.search(props.place, props.category, props.keyword);
+            props.history.push('/result');
+          }}
+>>>>>>> 2ab2e2246703d3fa4c62db41f52c00384a6aaa3d
         >
           決定
         </Button>
