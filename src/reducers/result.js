@@ -1,5 +1,5 @@
 const initialState = {
-  date: ''
+  data: undefined
 };
 
 export const fetchDataReducer = (state = initialState, action) => {

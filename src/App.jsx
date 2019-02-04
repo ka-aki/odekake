@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Search from './containers/Search';
-import Result from './Result';
+import Result from './containers/Result';
 
 const App = () => {
   return (
