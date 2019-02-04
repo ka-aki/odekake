@@ -23,7 +23,7 @@ const Result = props => {
               }}
             >
               <CardMedia
-                image="https://material-ui.com/static/images/cards/paella.jpg"
+                image="https://api.foursquare.com/v2/venues/venue.id/photos"
                 title="Paella dish"
                 style={{
                   height: 0,
@@ -34,7 +34,11 @@ const Result = props => {
                 <Typography gutterBottom variant="h5" component="h2">
                   {venue.name}
                 </Typography>
-                <Typography component="p">{venue.categories.name}</Typography>
+                <Typography component="p">{venue.categories.map((category, i) => {
+                  return (
+                    <p>{category.name}</p>
+                  )
+                })}</Typography>
               </CardContent>
               <CardActions disableActionSpacing>
                 <IconButton aria-label="Add to favorites">
@@ -89,15 +93,5 @@ const Result = props => {
     </React.Fragment>
   );
 };
-
-//       {props.data ? (
-//         props.data.response.venues.map((venue, i) => (
-//           <p key={i}>{venue.name}</p>
-//         ))
-//       ) : (
-//         <p>読み込み中</p>
-//       )}
-//   );
-// };
 
 export default Result;
