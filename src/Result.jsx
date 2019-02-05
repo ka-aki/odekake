@@ -14,7 +14,7 @@ const Result = props => {
   return (
     <React.Fragment>
       {props.data ? (
-        props.data.response.venues.map((venue, i) => {
+        props.data.response.groups[0].items.map((item, i) => {
           return (
             <Card
               style={{
@@ -23,7 +23,11 @@ const Result = props => {
               }}
             >
               <CardMedia
-                image="https://api.foursquare.com/v2/venues/venue.id/photos"
+                image={item.venue.categories.map((icon, i) => {
+                  return (
+                    `${icon.prefix}300${icon.suffix}`
+                  )
+                })}
                 title="Paella dish"
                 style={{
                   height: 0,
@@ -32,9 +36,9 @@ const Result = props => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {venue.name}
+                  {item.venue.name}
                 </Typography>
-                <Typography component="p">{venue.categories.map((category, i) => {
+                <Typography component="p">{item.venue.categories.map((category, i) => {
                   return (
                     <p>{category.name}</p>
                   )

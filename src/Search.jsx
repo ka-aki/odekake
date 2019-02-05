@@ -55,12 +55,12 @@ function Search(props) {
               />
             }
           >
-            <MenuItem value={all}>
+            <MenuItem value={"food"}>
               <span>すべて</span>
             </MenuItem>
-            <MenuItem value={restaurant}>飲食店</MenuItem>
-            <MenuItem value={cafe}>カフェ</MenuItem>
-            <MenuItem value={amusument}>娯楽</MenuItem>
+            <MenuItem value={"food"}>飲食店</MenuItem>
+            <MenuItem value={"drinks"}>カフェ</MenuItem>
+            <MenuItem value={"trending"}>トレンド</MenuItem>
           </Select>
         </FormControl>
         <TextField
