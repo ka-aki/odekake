@@ -45,10 +45,18 @@ export const fetchData = (place, category, keyword) => {
       `${RECOMMENDED_URL}&near=${place}&query=${keyword}&locale=ja&v=20200101&section=${category}&radius=250`
     );
     const data = await response.json();
+    const venues = data.response.groups[0].items.map(item => {
+      // photo をfetchする処理いれたいよ〜〜〜〜
+      const photoUrl = 'aaaaaaaaaa';
+      return {
+        ...item.venue,
+        photoUrl: photoUrl
+      };
+    });
+    console.log(venues);
 
     dispatch(clickButtonData(data));
   };
 };
-
 
 // `${API_URL}&near=${place}&query=${keyword}&locale=ja&v=20200101&categoryId=${category}&radius=250`
