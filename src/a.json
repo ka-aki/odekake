@@ -1,90 +1,140 @@
 {
-    "meta": {
-      "code": 200,
-      "requestId": "5ac51ef86a607143de8eg5cb"
-    },
-    "response": {
-      "warning": {
-        "text": "There aren't a lot of results near you. Try something more general, reset your filters, or expand the search area."
-      },
-      "suggestedRadius": 600,
-      "headerLocation": "Lower East Side",
-      "headerFullLocation": "Lower East Side, New York",
-      "headerLocationGranularity": "neighborhood",
-      "totalResults": 230,
-      "suggestedBounds": {
-        "ne": {
-          "lat": 40.724216906965616,
-          "lng": -73.9896507407283
-        },
-        "sw": {
-          "lat": 40.72151724718017,
-          "lng": -73.98693222860872
-        }
-      },
-      "groups": [
+  "meta": {
+    "code": 200,
+    "requestId": "59bae9f76a60717bd326f0e7"
+  },
+  "response": {
+    "normalizedQuery": "pizza",
+    "group": {
+      "results": [
         {
-          "type": "Recommended Places",
-          "name": "recommended",
-          "items": [
-            {
-              "reasons": {
-                "count": 0,
-                "items": [
-                  {
-                    "summary": "This spot is popular",
-                    "type": "general",
-                    "reasonName": "globalInteractionReason"
-                  }
-                ]
-              },
-              "venue": {
-                "id": "49b6e8d2f964a52016531fe3",
-                "name": "Russ & Daughters",
-                "location": {
-                  "address": "179 E Houston St",
-                  "crossStreet": "btwn Allen & Orchard St",
-                  "lat": 40.72286707707289,
-                  "lng": -73.98829148466851,
-                  "labeledLatLngs": [
-                    {
-                      "label": "display",
-                      "lat": 40.72286707707289,
-                      "lng": -73.98829148466851
-                    }
-                  ],
-                  "distance": 130,
-                  "postalCode": "10002",
-                  "cc": "US",
-                  "city": "New York",
-                  "state": "NY",
-                  "country": "United States",
-                  "formattedAddress": [
-                    "179 E Houston St (btwn Allen & Orchard St)",
-                    "New York, NY 10002",
-                    "United States"
-                  ]
+          "displayType": "venue",
+          "venue": {
+            "id": "56c3c626cd106998d2b196d0",
+            "name": "Scarr's Pizza",
+            "contact": {
+            },
+            "location": {
+              "address": "22 Orchard St",
+              "lat": 40.715335008813696,
+              "lng": -73.99164900167455,
+              "labeledLatLngs": [
+                {
+                  "label": "display",
+                  "lat": 40.715335008813696,
+                  "lng": -73.99164900167455
+                }
+              ],
+              "distance": 627,
+              "cc": "US",
+              "city": "New York",
+              "state": "NY",
+              "country": "United States",
+              "formattedAddress": [
+                "22 Orchard St",
+                "New York, NY",
+                "United States"
+              ]
+            },
+            "categories": [
+              {
+                "id": "4bf58dd8d48988d1ca941735",
+                "name": "Pizza Place",
+                "pluralName": "Pizza Places",
+                "shortName": "Pizza",
+                "icon": {
+                  "prefix": "https://ss3.4sqi.net/img/categories_v2/food/pizza_",
+                  "suffix": ".png"
                 },
-                "categories": [
-                  {
-                    "id": "4bf58dd8d48988d1f5941735",
-                    "name": "Gourmet Shop",
-                    "pluralName": "Gourmet Shops",
-                    "shortName": "Gourmet",
-                    "icon": {
-                      "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/food_gourmet_",
-                      "suffix": ".png"
-                    },
-                    "primary": true
+                "primary": true
+              }
+            ],
+            "verified": false,
+            "stats": {
+              "checkinsCount": 628,
+              "usersCount": 356,
+              "tipCount": 19
+            },
+            "url": "http://www.scarrspizza.com",
+            "price": {
+              "tier": 1,
+              "message": "Cheap",
+              "currency": "$"
+            },
+            "dislike": false,
+            "ok": false,
+            "rating": 8.6,
+            "ratingColor": "73CF42",
+            "ratingSignals": 89,
+            "allowMenuUrlEdit": true,
+            "beenHere": {
+              "count": 0,
+              "marked": false,
+              "lastCheckinExpiredAt": 0
+            }
+          },
+          "id": "59bae9f879187168d86ac161",
+          "photo": {
+            "id": "571fd08ecd102b6ac54c08c1",
+            "createdAt": 1461702798,
+            "prefix": "https://igx.4sqi.net/img/general/",
+            "suffix": "/173774_KwI1uQ6cp_ayifvMYJs8GDdSK-zlHbcBLDy7hEQ-KH0.jpg",
+            "width": 1440,
+            "height": 1920,
+            "visibility": "public"
+          },
+          "snippets": {
+            "count": 1,
+            "items": [
+              {
+                "detail": {
+                  "type": "tip",
+                  "object": {
+                    "id": "5776671d498e124a2c6c0bb8",
+                    "createdAt": 1467377437,
+                    "text": "This place has an old school diner vibe with draft Budweiser and solid pizza. Plus there's awesome rap music always playing. Try a slice of Sicilian.",
+                    "type": "user",
+                    "canonicalUrl": "https://foursquare.com/item/5776671d498e124a2c6c0bb8",
+                    "logView": true,
+                    "agreeCount": 5,
+                    "disagreeCount": 0,
+                    "todo": {
+                      "count": 0
+                    }
                   }
-                ],
-                "venuePage": {
-                  "id": "77298563"
                 }
               }
-            }
-          ]
+            ]
+          }
         }
-      ]
+      ],
+      "totalResults": 73
+    },
+    "context": {
+      "searchLocationType": "NearYou",
+      "currentLocation": {
+        "feature": {
+          "cc": "US",
+          "name": "Lower East Side",
+          "displayName": "Lower East Side, New York, NY",
+          "woeType": 22,
+          "geometry": {
+            "center": {
+              "lat": 40.716319,
+              "lng": -73.982481
+            }
+          }
+        }
+      }
+      "geoBounds": {
+        "circle": {
+          "center": {
+            "lat": 40.7128,
+            "lng": -73.985
+          },
+          "radius": 692
+        }
+      }
     }
   }
+}

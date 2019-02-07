@@ -1,7 +1,7 @@
 const CLIENT_ID = '3SMVNPD414UPVNPRHAFRR0JAVRKDCQ22K14JE51N445TB3SK';
 const CLIENT_SECRET = '04HPQN4SSRPZPHCB34K0JP44YZI2L5IDGZ2VMYTEBGO3DV2N';
 
-const RECOMMENDED_URL = `https://api.foursquare.com/v2/venues/explore?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
+const API_URL = `https://api.foursquare.com/v2/search/recommendations?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`;
 
 export const changePlaceInput = placeInput => {
   return {
@@ -42,21 +42,10 @@ export const clickButtonData = data => {
 export const fetchData = (place, category, keyword) => {
   return async (dispatch, getState) => {
     const response = await fetch(
-      `${RECOMMENDED_URL}&near=${place}&query=${keyword}&locale=ja&v=20200101&section=${category}&radius=250`
+      `${API_URL}&near=${place}&query=${keyword}&locale=ja&v=20200101&categories=${category}&radius=250`
     );
     const data = await response.json();
-    const venues = data.response.groups[0].items.map(item => {
-      // photo をfetchする処理いれたいよ〜〜〜〜
-      const photoUrl = 'aaaaaaaaaa';
-      return {
-        ...item.venue,
-        photoUrl: photoUrl
-      };
-    });
-    console.log(venues);
-
+   
     dispatch(clickButtonData(data));
+    }
   };
-};
-
-// `${API_URL}&near=${place}&query=${keyword}&locale=ja&v=20200101&categoryId=${category}&radius=250`

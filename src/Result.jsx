@@ -14,7 +14,7 @@ const Result = props => {
   return (
     <React.Fragment>
       {props.data ? (
-        props.data.response.groups[0].items.map((item, i) => {
+        props.data.response.group.results.map((result, i) => {
           return (
             <Card
               style={{
@@ -23,11 +23,7 @@ const Result = props => {
               }}
             >
               <CardMedia
-                image={item.venue.categories.map((icon, i) => {
-                  return (
-                    `${icon.prefix}300${icon.suffix}`
-                  )
-                })}
+                // image={`${result.photo.prefix}300${result.photo.suffix}`}
                 title="Paella dish"
                 style={{
                   height: 0,
@@ -36,13 +32,10 @@ const Result = props => {
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {item.venue.name}
+                  {result.venue.name}
                 </Typography>
-                <Typography component="p">{item.venue.categories.map((category, i) => {
-                  return (
-                    <p>{category.name}</p>
-                  )
-                })}</Typography>
+                <Typography component="p">{result.venue.categories[0].name
+                }</Typography>
               </CardContent>
               <CardActions disableActionSpacing>
                 <IconButton aria-label="Add to favorites">

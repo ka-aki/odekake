@@ -58,9 +58,9 @@ function Search(props) {
             <MenuItem value={"food"}>
               <span>すべて</span>
             </MenuItem>
-            <MenuItem value={"food"}>飲食店</MenuItem>
-            <MenuItem value={"drinks"}>カフェ</MenuItem>
-            <MenuItem value={"trending"}>トレンド</MenuItem>
+            <MenuItem value={restaurant}>飲食店</MenuItem>
+            <MenuItem value={cafe}>カフェ</MenuItem>
+            <MenuItem value={amusument}>トレンド</MenuItem>
           </Select>
         </FormControl>
         <TextField
