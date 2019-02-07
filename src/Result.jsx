@@ -9,21 +9,27 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import styled from 'styled-components';
 
 const Result = props => {
   return (
-    <React.Fragment>
+    <Container>
       {props.data ? (
         props.data.response.group.results.map((result, i) => {
           return (
             <Card
               style={{
-                margin: '0 auto',
-                width: '20%'
+                margin: '20px',
+                width: '100%',
+                maxWidth: '400px'
               }}
             >
               <CardMedia
-                // image={`${result.photo.prefix}300${result.photo.suffix}`}
+                image={
+                  result.photo
+                    ? `${result.photo.prefix}300${result.photo.suffix}`
+                    : ''
+                }
                 title="Paella dish"
                 style={{
                   height: 0,
@@ -34,8 +40,9 @@ const Result = props => {
                 <Typography gutterBottom variant="h5" component="h2">
                   {result.venue.name}
                 </Typography>
-                <Typography component="p">{result.venue.categories[0].name
-                }</Typography>
+                <Typography component="p">
+                  {result.venue.categories[0].name}
+                </Typography>
               </CardContent>
               <CardActions disableActionSpacing>
                 <IconButton aria-label="Add to favorites">
@@ -87,8 +94,13 @@ const Result = props => {
       ) : (
         <p>Now Loading...</p>
       )}
-    </React.Fragment>
+    </Container>
   );
 };
 
 export default Result;
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
