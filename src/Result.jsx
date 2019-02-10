@@ -7,10 +7,18 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import styled from 'styled-components';
+import {
+  TwitterShareButton,
+  TwitterIcon,
+  LineShareButton,
+  LineIcon
+} from 'react-share';
 
 const Result = props => {
   return (
@@ -40,6 +48,9 @@ const Result = props => {
                     width: '100%',
                     maxWidth: '300px'
                   }}
+                  onClick={() => {
+                    props.setDialogValue(true);
+                  }}
                 >
                   <CardMedia
                     image={
@@ -57,17 +68,37 @@ const Result = props => {
                     <Typography gutterBottom variant="h5" component="h2">
                       {result.venue.name}
                     </Typography>
-                    <Typography component="p">
+                    <Typography
+                      component="div"
+                      style={{ marginBottom: '10px' }}
+                    >
                       {result.venue.categories[0].name}
+                    </Typography>
+                    <Typography
+                      component="div"
+                      style={{ marginBottom: '10px' }}
+                    >
+                      {result.venue.location.address}
+                    </Typography>
+                    <Typography
+                      component="div"
+                      style={{ marginBottom: '10px' }}
+                    >
+                      {result.snippets.items[0].detail.object.text}
                     </Typography>
                   </CardContent>
                   <CardActions disableActionSpacing>
-                    <IconButton aria-label="Add to favorites">
-                      <FavoriteIcon />
-                    </IconButton>
-                    <IconButton aria-label="Share">
-                      <ShareIcon />
-                    </IconButton>
+                    <LineShareButton
+                      url={'https://www.npmjs.com/package/react-share'}
+                      style={{ marginRight: '10px' }}
+                    >
+                      <LineIcon size={32} round={true} />
+                    </LineShareButton>
+                    <TwitterShareButton
+                      url={'https://www.npmjs.com/package/react-share'}
+                    >
+                      <TwitterIcon size={32} round={true} />
+                    </TwitterShareButton>
                   </CardActions>
                 </Card>
               );
@@ -79,6 +110,22 @@ const Result = props => {
           <p>Now Loading...</p>
         )}
       </Container>
+      <Dialog
+        open={props.dialog}
+        onClose={() => props.setDialogValue(false)}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
     </React.Fragment>
   );
 };
@@ -89,4 +136,9 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  justify-content: center;
+`;
+
+const SNSIcons = styled(CardActions)`
+  margin: 0 20px;
 `;
