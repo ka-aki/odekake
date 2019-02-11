@@ -42,10 +42,10 @@ export const clickButtonData = data => {
 export const fetchData = (place, category, keyword) => {
   return async (dispatch, getState) => {
     const response = await fetch(
-      `${API_URL}&near=${place}&query=${keyword}&locale=ja&v=20200101&categories=${category}&radius=250`
+      `${API_URL}&near=${place}&query=${keyword}&locale=ja&v=20200101&intent=${category}&radius=250`
     );
     const data = await response.json();
-   
+
     dispatch(clickButtonData(data));
-    }
   };
+};

@@ -10,7 +10,6 @@ import FormControl from '@material-ui/core/FormControl';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
-import green from '@material-ui/core/colors/green';
 
 function Search(props) {
   const all = '';
@@ -20,9 +19,13 @@ function Search(props) {
 
   return (
     <React.Fragment>
-      <AppBar position="static" color="primary">
+      <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
         <Toolbar>
-          <Typography variant="h6" color="inherit">
+          <Typography
+            variant="h6"
+            color="inherit"
+            style={{ fontWeight: 'bold' }}
+          >
             　 おでかけあぷり
           </Typography>
         </Toolbar>
@@ -53,12 +56,12 @@ function Search(props) {
               />
             }
           >
-            <MenuItem value={'food'}>
-              <span>すべて</span>
-            </MenuItem>
-            <MenuItem value={restaurant}>飲食店</MenuItem>
-            <MenuItem value={cafe}>カフェ</MenuItem>
-            <MenuItem value={amusument}>トレンド</MenuItem>
+            <MenuItem value={'food'}>Food</MenuItem>
+            <MenuItem value={'coffee'}>Coffee</MenuItem>
+            <MenuItem value={'drinks'}>Drinks</MenuItem>
+            <MenuItem value={'shopping'}>Shopping</MenuItem>
+            <MenuItem value={'fun'}>Fun</MenuItem>
+            <MenuItem value={'sights'}>Sights</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -75,7 +78,11 @@ function Search(props) {
       <ButtonLayout>
         <Button
           variant="contained"
-          color="secondary"
+          style={{
+            backgroundColor: '#ffc107',
+            color: 'white',
+            fontWeight: 'bold'
+          }}
           onClick={() => {
             props.search(props.place, props.category, props.keyword);
             props.history.push('/result');
@@ -91,7 +98,7 @@ function Search(props) {
 export default Search;
 
 const BarLayout = styled.div`
-  width: 60%;
+  width: 80%;
   height: 30%;
   margin: 100px auto 50px;
   line-height: 6;

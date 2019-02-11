@@ -26,7 +26,7 @@ import {
 const Result = props => {
   return (
     <React.Fragment>
-      <AppBar position="static" color="primary">
+      <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -36,14 +36,19 @@ const Result = props => {
           >
             <ArrowBackIcon />
           </IconButton>
-          <Typography variant="h6" color="inherit">
+          <Typography
+            variant="h6"
+            color="inherit"
+            style={{ fontWeight: 'bold' }}
+          >
             　おでかけあぷり
           </Typography>
         </Toolbar>
       </AppBar>
       <Container>
         {props.data ? (
-          props.data.meta.code === 200 ? (
+          props.data.meta.code === 200 &&
+          props.data.response.group.totalResults > 0 ? (
             props.data.response.group.results.map((result, i) => {
               return (
                 <Card
@@ -110,24 +115,25 @@ const Result = props => {
                         {result.venue.location.address}
                       </Typography>
                     </Title>
-
-                    <Title>
-                      <RateReview
-                        style={{
-                          width: '20px',
-                          marginRight: '10px',
-                          color: '#5D99FF	'
-                        }}
-                      />
-                      <Typography
-                        component="div"
-                        style={{ marginBottom: '10px' }}
-                      >
-                        {result.snippets.items[0].detail
-                          ? result.snippets.items[0].detail.object.text
-                          : ''}
-                      </Typography>
-                    </Title>
+                    {result.snippets.items[0].detail && (
+                      <Title style={{ clear: 'both' }}>
+                        <RateReview
+                          style={{
+                            width: '20px',
+                            marginRight: '10px',
+                            color: '#5D99FF	'
+                          }}
+                        />
+                        <Typography
+                          component="div"
+                          style={{ marginBottom: '10px' }}
+                        >
+                          {result.snippets.items[0].detail
+                            ? result.snippets.items[0].detail.object.text
+                            : ''}
+                        </Typography>
+                      </Title>
+                    )}
                   </TextArea>
                 </Card>
               );
@@ -195,6 +201,7 @@ const Container = styled.div`
 
 const TextArea = styled(CardContent)`
   width: 280px;
+  z-index: 2;
 `;
 
 const Title = styled.div`
