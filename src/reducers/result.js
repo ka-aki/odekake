@@ -1,6 +1,7 @@
 const initialState = {
   data: undefined,
-  dialog: undefined
+  dialog: false,
+  detailData: undefined
 };
 
 export const fetchDataReducer = (state = initialState, action) => {
@@ -21,6 +22,18 @@ export const setDialogReducer = (state = initialState, action) => {
       return {
         ...state,
         dialog: action.payload.dialog
+      };
+    default:
+      return state;
+  }
+};
+
+export const setDetailDataReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SET_DETAIL_DATA':
+      return {
+        ...state,
+        detailData: action.payload.detailData
       };
     default:
       return state;
