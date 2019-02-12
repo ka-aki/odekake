@@ -20,7 +20,9 @@ import {
   TwitterShareButton,
   TwitterIcon,
   LineShareButton,
-  LineIcon
+  LineIcon,
+  FacebookShareButton,
+  FacebookIcon,
 } from 'react-share';
 
 const Result = props => {
@@ -151,39 +153,51 @@ const Result = props => {
           onClose={() => props.setDialogValue(false)}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
+          fullWidth
+          maxWidth="md"
         >
-          <DialogTitle id="alert-dialog-title">
+        <DialogTextArea>
+          <DialogTitle id="alert-dialog-title" style={{ textAlign: 'center'}}>
             {props.detailData.response.venue.name}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              <p>Rating: {props.detailData.response.venue.rating}</p>
-              <p>Hours: {props.detailData.response.venue.hours.status}</p>
-              <p>Phone: {props.detailData.response.venue.contact.phone}</p>
+            <DialogContentText id="alert-dialog-description" >
+              <p>Rating : {props.detailData.response.venue.rating}</p>
+              <p>Hours : {props.detailData.response.venue.hours.status}</p>
+              <p>Phone : {props.detailData.response.venue.contact.phone}</p>
               <p>
-                URL:
+                URL : 
                 <a href={props.detailData.response.venue.url}>
                   {props.detailData.response.venue.url}
                 </a>
               </p>
-              <p>Likes: {props.detailData.response.venue.likes.summary}</p>
+              <p>Likes : {props.detailData.response.venue.likes.summary}</p>
             </DialogContentText>
-            <CardActions disableActionSpacing style={{ clear: 'both' }}>
+            <CardActions disableActionSpacing style={{ clear: 'both', justifyContent: 'center' }}>
               <LineShareButton
-                url={'https://www.npmjs.com/package/react-share'}
-                style={{ marginRight: '10px' }}
+                url={props.detailData.response.venue.url}
+                style={{ marginRight: '8px' }}
               >
                 <LineIcon size={32} round={true} />
               </LineShareButton>
               <TwitterShareButton
                 url={props.detailData.response.venue.url}
-                title={'ツイートする'}
+                title={props.detailData.response.venue.name}
                 via="おでかけあぷり"
+                style={{ marginRight: '8px' }}
               >
                 <TwitterIcon size={32} round={true} />
               </TwitterShareButton>
+              <FacebookShareButton
+                url={props.detailData.response.venue.url}
+                hashtag={`#${props.detailData.response.venue.name}`}
+                style={{ marginRight: '8px' }}
+              >
+                <FacebookIcon size={32} round={true} />
+              </FacebookShareButton>
             </CardActions>
           </DialogContent>
+          </DialogTextArea>
         </Dialog>
       )}
     </React.Fragment>
@@ -209,3 +223,8 @@ const Title = styled.div`
   float: left;
   font-size: 10px;
 `;
+
+
+const DialogTextArea = styled.div `
+margin: 0 auto;
+`

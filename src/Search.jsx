@@ -12,11 +12,6 @@ import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
 function Search(props) {
-  const all = '';
-  const restaurant = '4d4b7105d754a06374d81259';
-  const cafe = '4bf58dd8d48988d16d941735';
-  const amusument = '4d4b7104d754a06370d81259';
-
   return (
     <React.Fragment>
       <AppBar position="static" style={{ backgroundColor: '#4caf50' }}>
