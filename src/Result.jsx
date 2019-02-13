@@ -162,6 +162,10 @@ const Result = props => {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description" >
+            <StarRating>
+              <StarRatingFront style={{width: `${props.detailData.response.venue.rating *10}%` }}>★★★★★★★★★★</StarRatingFront>
+              <StarRatingBack>★★★★★★★★★★</StarRatingBack>
+            </StarRating>
               <p>Rating : {props.detailData.response.venue.rating}</p>
               <p>Hours : {props.detailData.response.venue.hours.status}</p>
               <p>Phone : {props.detailData.response.venue.contact.phone}</p>
@@ -227,4 +231,20 @@ const Title = styled.div`
 
 const DialogTextArea = styled.div `
 margin: 0 auto;
+`
+
+const StarRating = styled.div`
+  position: relative;
+  display:inline-block;
+  font-size: 25px;
+`
+const StarRatingFront = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffcc33;
+`
+const StarRatingBack = styled.div`
+color: #ccc;
 `
