@@ -156,26 +156,30 @@ const Result = props => {
           fullWidth
           maxWidth="md"
         >
-        <DialogTextArea>
           <DialogTitle id="alert-dialog-title" style={{ textAlign: 'center'}}>
             {props.detailData.response.venue.name}
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description" >
-            <StarRating>
-              <StarRatingFront style={{width: `${props.detailData.response.venue.rating *10}%` }}>★★★★★★★★★★</StarRatingFront>
-              <StarRatingBack>★★★★★★★★★★</StarRatingBack>
-            </StarRating>
-              <p>Rating : {props.detailData.response.venue.rating}</p>
+            <StarReviews>
+              <StarCount>
+              {props.detailData.response.venue.rating}
+              </StarCount>
+              <StarRating>
+                <StarRatingFront style={{width: `${props.detailData.response.venue.rating *10}%` }}>★★★★★★★★★★</StarRatingFront>
+                <StarRatingBack>★★★★★★★★★★</StarRatingBack>
+              </StarRating>
+            </StarReviews>
+            <DialogTextArea>
+              <div>
               <p>Hours : {props.detailData.response.venue.hours.status}</p>
               <p>Phone : {props.detailData.response.venue.contact.phone}</p>
               <p>
-                URL : 
-                <a href={props.detailData.response.venue.url}>
-                  {props.detailData.response.venue.url}
-                </a>
+                URL : <a href={props.detailData.response.venue.url}>ホームページはこちら</a>
               </p>
               <p>Likes : {props.detailData.response.venue.likes.summary}</p>
+              </div>
+              </DialogTextArea>
             </DialogContentText>
             <CardActions disableActionSpacing style={{ clear: 'both', justifyContent: 'center' }}>
               <LineShareButton
@@ -201,7 +205,6 @@ const Result = props => {
               </FacebookShareButton>
             </CardActions>
           </DialogContent>
-          </DialogTextArea>
         </Dialog>
       )}
     </React.Fragment>
@@ -228,16 +231,28 @@ const Title = styled.div`
   font-size: 10px;
 `;
 
-
 const DialogTextArea = styled.div `
-margin: 0 auto;
+  display: flexbox;
+  flex-direction: column;
+  justify-content: center;
+`
+
+const StarReviews = styled.div`
+  text-align: center;
+  font-size: 22px;
+`
+
+const StarCount = styled.div`
+  font-weight: bold;
+  text-align: center;
+  font-size: 22px;
 `
 
 const StarRating = styled.div`
   position: relative;
-  display:inline-block;
-  font-size: 25px;
+  display: inline-block;
 `
+
 const StarRatingFront = styled.div`
   position: absolute;
   top: 0;
