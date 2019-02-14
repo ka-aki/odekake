@@ -22,7 +22,7 @@ import {
   LineShareButton,
   LineIcon,
   FacebookShareButton,
-  FacebookIcon,
+  FacebookIcon
 } from 'react-share';
 
 const Result = props => {
@@ -156,32 +156,42 @@ const Result = props => {
           fullWidth
           maxWidth="md"
         >
-          <DialogTitle id="alert-dialog-title" style={{ textAlign: 'center'}}>
+          <DialogTitle id="alert-dialog-title" style={{ textAlign: 'center' }}>
             {props.detailData.response.venue.name}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description" >
-            <StarReviews>
-              <StarCount>
-              {props.detailData.response.venue.rating}
-              </StarCount>
-              <StarRating>
-                <StarRatingFront style={{width: `${props.detailData.response.venue.rating *10}%` }}>★★★★★★★★★★</StarRatingFront>
-                <StarRatingBack>★★★★★★★★★★</StarRatingBack>
-              </StarRating>
-            </StarReviews>
-            <DialogTextArea>
-              <div>
-              <p>Hours : {props.detailData.response.venue.hours.status}</p>
-              <p>Phone : {props.detailData.response.venue.contact.phone}</p>
-              <p>
-                URL : <a href={props.detailData.response.venue.url}>ホームページはこちら</a>
-              </p>
-              <p>Likes : {props.detailData.response.venue.likes.summary}</p>
-              </div>
+            <DialogContentText id="alert-dialog-description">
+              <StarReviews>
+                <StarCount>{props.detailData.response.venue.rating}</StarCount>
+                <StarRating>
+                  <StarRatingFront
+                    style={{
+                      width: `${props.detailData.response.venue.rating * 10}%`
+                    }}
+                  >
+                    ★★★★★★★★★★
+                  </StarRatingFront>
+                  <StarRatingBack>★★★★★★★★★★</StarRatingBack>
+                </StarRating>
+              </StarReviews>
+              <DialogTextArea>
+                <div>
+                  <p>Hours : {props.detailData.response.venue.hours.status}</p>
+                  <p>Phone : {props.detailData.response.venue.contact.phone}</p>
+                  <p>
+                    URL :{' '}
+                    <a href={props.detailData.response.venue.url}>
+                      ホームページはこちら
+                    </a>
+                  </p>
+                  <p>Likes : {props.detailData.response.venue.likes.summary}</p>
+                </div>
               </DialogTextArea>
             </DialogContentText>
-            <CardActions disableActionSpacing style={{ clear: 'both', justifyContent: 'center' }}>
+            <CardActions
+              disableActionSpacing
+              style={{ clear: 'both', justifyContent: 'center' }}
+            >
               <LineShareButton
                 url={props.detailData.response.venue.url}
                 style={{ marginRight: '8px' }}
@@ -231,35 +241,35 @@ const Title = styled.div`
   font-size: 10px;
 `;
 
-const DialogTextArea = styled.div `
+const DialogTextArea = styled.div`
   display: flexbox;
   flex-direction: column;
   justify-content: center;
-`
+`;
 
 const StarReviews = styled.div`
   text-align: center;
   font-size: 22px;
-`
+`;
 
 const StarCount = styled.div`
   font-weight: bold;
   text-align: center;
   font-size: 22px;
-`
+`;
 
 const StarRating = styled.div`
   position: relative;
   display: inline-block;
-`
+`;
 
 const StarRatingFront = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   overflow: hidden;
-  color: #ffcc33;
-`
+  color: #cc3366;
+`;
 const StarRatingBack = styled.div`
-color: #ccc;
-`
+  color: #ccc;
+`;
