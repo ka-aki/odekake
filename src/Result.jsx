@@ -177,9 +177,16 @@ const Result = props => {
               <DialogTextArea>
                 <div>
                   <p>Hours : {props.detailData.response.venue.hours.status}</p>
-                  <p>Phone : {props.detailData.response.venue.contact.phone}</p>
+                  Phone :
+                  <a
+                    href={`tel: ${
+                      props.detailData.response.venue.contact.phone
+                    }`}
+                  >
+                    {props.detailData.response.venue.contact.phone}
+                  </a>
                   <p>
-                    URL :{' '}
+                    URL :
                     <a href={props.detailData.response.venue.url}>
                       ホームページはこちら
                     </a>
