@@ -26,20 +26,24 @@ function Search(props) {
         </Toolbar>
       </AppBar>
       <BarLayout>
+        <Required>【必須】</Required>
         <TextField
           label="place"
           placeholder="東京"
           variant="outlined"
           fullWidth
           value={props.place}
+          style={{ marginBottom: '20px' }}
           onChange={e => {
             props.changePlace(e.target.value);
           }}
         />
+        <div>【任意】</div>
         <FormControl variant="outlined" fullWidth>
           <InputLabel htmlFor="outlined-age-simple">category</InputLabel>
           <Select
             value={props.category}
+            style={{ marginBottom: '20px' }}
             onChange={e => {
               props.changeCategory(e.target.value);
             }}
@@ -59,12 +63,14 @@ function Search(props) {
             <MenuItem value={'sights'}>Sights</MenuItem>
           </Select>
         </FormControl>
+        <div>【任意】</div>
         <TextField
           label="keyword"
           placeholder="カフェ"
           variant="outlined"
           fullWidth
           value={props.keyword}
+          style={{ marginBottom: '20px' }}
           onChange={e => {
             props.changeKeyword(e.target.value);
           }}
@@ -96,7 +102,10 @@ const BarLayout = styled.div`
   width: 80%;
   height: 30%;
   margin: 100px auto 50px;
-  line-height: 6;
+  line-height: 3;
+`;
+const Required = styled.div`
+  color: red;
 `;
 
 const ButtonLayout = styled.p`
