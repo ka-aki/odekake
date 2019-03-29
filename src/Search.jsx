@@ -25,24 +25,6 @@ function Search(props) {
           </Typography>
         </Toolbar>
       </AppBar>
-      <About>
-        <div
-          style={{
-            color: '#339933',
-            fontSize: '28px',
-            margin: '20px',
-            fontWeight: 'bold'
-          }}
-        >
-          About
-        </div>
-        <AboutText>
-          <div>行きたい場所や気になる場所を入力してみてください。</div>
-          <div>決定を押すとカードが表示されます。</div>
-          <div>カードはクリックすると詳細が見れます！</div>
-        </AboutText>
-      </About>
-
       <BarLayout>
         <Required>【必須】</Required>
         <TextField

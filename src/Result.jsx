@@ -53,7 +53,7 @@ const Result = props => {
           props.data.response.group.totalResults > 0 ? (
             props.data.response.group.results.map((result, i) => {
               return (
-                <Card
+                <CardHover
                   key={result.venue.id}
                   style={{
                     margin: '20px',
@@ -137,7 +137,7 @@ const Result = props => {
                       </Title>
                     )}
                   </TextArea>
-                </Card>
+                </CardHover>
               );
             })
           ) : (
@@ -235,6 +235,12 @@ const Container = styled.div`
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: center;
+`;
+
+const CardHover = styled(Card)`
+  &:hover {
+    background-color: #9bf9cc;
+  }
 `;
 
 const TextArea = styled(CardContent)`
